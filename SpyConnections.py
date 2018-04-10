@@ -11,7 +11,7 @@ except:
        exit(1)
 
 if len(sys.argv) !=2:
-	print("\033[33m[#] Usage python SpyConections.py <interface> \033[0m")
+	print("\033[33m[#] Usage python SpyConnections.py <interface> \033[0m")
 	exit(1)
 iface = sys.argv[1]
 def sniff(hdr,data):
