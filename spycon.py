@@ -28,17 +28,21 @@ def sniff(hdr,data):
     src_ip = ip_hdr.get_ip_src()
     dst_ip = ip_hdr.get_ip_dst()
     print("[!>] New Connection found[ {} ---> {} ]".format(src_ip,dst_ip))
-try:
- print("\n[+] Sniffer Connections Start [+]\n")
-
- sniffer = pcapy.open_live(iface,1500,1,100)
- sniffer.loop(0,sniff)
-except pcapy.PcapError:
+def start():
+ try:
+    sniffer = pcapy.open_live(iface,1500,1,100)
+    sniffer.loop(0,sniff)
+ except pcapy.PcapError:
 	print("\n[!] Error: Interface[{}] Is Not Connected !\n[*] Please Enter Your Connected Interface !!!".format(iface))
 	exit(1)
-except KeyboardInterrupt:
-		print("[$] Stoping Sniffer....")
+ except AttributeError:
+	start()
+ except KeyboardInterrupt:
+                print("[$] Stoping Sniffer....")
                 exit(1)
+
+print("\n[+] Sniffer Connections Start [+]\n")
+start()
 
 ##############################################################
 ##################### 		     #########################
@@ -48,3 +52,4 @@ except KeyboardInterrupt:
 #This Tool by Oseid Aldary
 #Have a nice day :)
 #GoodBye
+
