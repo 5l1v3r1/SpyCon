@@ -7,12 +7,12 @@
 import sys
 try:
  from impacket import ImpactDecoder
-except:
+except ImportError:
 	print("[!] Error The [impacket] library Is Not Install ! \n[#] Please Install It!\n[>] Usage This Command:> pip install impacket \n[$] And Try Again")
 	exit(1)
 try:
    import pcapy
-except:
+except ImportError:
        print("[!] Error The [pcapy] library Is Not Install ! \n[#] Please Install It!\n[>] Usage This Command:> pip install pcapy \n[$] And Try Again")
        exit(1)
 
@@ -41,7 +41,7 @@ def start():
                 print("[$] Stoping Sniffer....")
                 exit(1)
 
-print("\n[+] Sniffer Connections Start [+]\n")
+print("\n[+] Monitor Network Connections: Enable [+]\n")
 start()
 
 ##############################################################
@@ -52,4 +52,3 @@ start()
 #This Tool by Oseid Aldary
 #Have a nice day :)
 #GoodBye
-
